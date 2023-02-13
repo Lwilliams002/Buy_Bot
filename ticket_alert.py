@@ -1,12 +1,15 @@
 import requests
 import json
 
+
+from buying import check_ticket_availability
+
 # Define the API endpoint and include your API key
 url = "https://app.ticketmaster.com/discovery/v2/events?apikey=I5jjDofsEMwSojQNJFqs33iXlWFutL2Q&keyword=ufc"
 
 # Make the API request and retrieve the response
 response = requests.get(url)
-
+data = False
 # Check the status code of the response to make sure it was successful
 if response.status_code == 200:
     # Parse the response data as JSON
@@ -37,15 +40,19 @@ if response.status_code == 200:
                     "en": "Ticket Alert",
                     "en": "UFC 287 tickets are now on sale!"
                 },
-                "include_phone_numbers": ["+17542179770"]
+                #
+                "include_phone_numbers": ["3059158174"]
             }
             req = requests.post("https://onesignal.com/api/v1/notifications", headers=header, data=json.dumps(payload))
+
             print(req.status_code, req.reason)
 
             # Check the status code of the response to make sure it was successful
             if req.status_code == 200:
                 print("Push notification sent successfully")
                 print(req.text)
+
+                check_ticket_availability(data)
             else:
                 print("Failed to send push notification:", req.text)
 

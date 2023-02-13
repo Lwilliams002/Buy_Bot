@@ -1,9 +1,25 @@
-The goal of this project is to develop a solution that alerts users when UFC tickets become available for purchase. The solution will use the Ticketmaster API and the OneSignal API to accomplish this.
+Introduction
+This project aims to create a bot to purchase a product on a website. The bot automates the process of visiting the
+website, selecting the desired product, and entering payment information. This is done using a combination of web
+scraping and automated form submissions.
 
-The Ticketmaster API will be used to retrieve information about the availability of UFC tickets. The OneSignal API will be used to send push notifications to the users when tickets become available.
+Next Steps
 
-The solution will be built using Python and will consist of two main components: a script to make the API requests and a script to send the push notifications. The script that makes the API requests will use the Ticketmaster API to retrieve information about the availability of UFC tickets. If the information indicates that tickets are available for a specific event, such as UFC 287, the script will trigger the second script to send the push notification to the users.
+Access the website: use a tool such as the requests library in Python to access the website programmatically.
 
-The push notification will contain information about the availability of the tickets, including the event name and the ticket status. Users will receive the push notification on their devices, providing them with a quick and convenient way to stay up-to-date on the availability of UFC tickets.
+Locate the desired product: The bot extracts the information about the product to be purchased, such as its URL, price,
+and availability, using web scraping techniques.
 
-This project is ideal for sports fans who are interested in purchasing UFC tickets and want to be informed as soon as tickets become available. It provides a simple and efficient way for users to stay informed about the availability of tickets without having to constantly check the website for updates.
+Enter payment information: The bot automates the process of entering payment information, such as the credit card
+details and billing address, by submitting a form programmatically using the requests library or another tool.
+
+Submit the order: The bot submits the order and makes the purchase, handling any error messages or confirmations
+returned by the website to ensure that the purchase was successful.
+
+Considerations
+It's important to note that while this approach can be effective, it may also be against the terms of service of some
+websites and may result in the bot's account being banned. Additionally, there may be security risks associated with
+storing sensitive information, such as credit card details, in the bot's script.
+
+Given these considerations, I have to thoroughly research the legal and ethical implications of automating
+purchases before proceeding with this project.
